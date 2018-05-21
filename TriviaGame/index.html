@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+  <html lang ="en">
+    <head>
+
+        <meta charset="utf-8">
+        <title>Trivia Quiz</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="assets/javascript/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+      <div class="jumbotron" id="jumbotron">
+      <h1>Boozey Trivia</h1>
+
+        <form id="quiz" name="quiz"> 
+
+          <p>Which beer style was a byproduct of long ship voyages which needed to be kept fresher?</p>
+            <input type="radio" name="question1" value="IPA" checked> IPA
+            <input type="radio" name="question1" value="Porter"> Porter
+            <input type="radio" name="question1" value="White Ale"> White Ale
+            <input type="radio" name="question1" value="Saison"> Saison        
+  
+
+        <br>
+
+   
+          <p>Which ingredient consumes sugar to produce alcohol?</p>
+            <input type="radio" name="question2" value="Malts" checked> Malts
+            <input type="radio" name="question2" value="Hops"> Hops
+            <input type="radio" name="question2" value="Yeast"> Yeast
+            <input type="radio" name="question2" value="Herbs"> Herbs        
+        
+            <br>
+            <br>
+
+        <input id="submit" type="button" value="Submit" .onclick = "check();">
+          
+      </form>
+
+        <div>
+          <span>Timer:</span> <p id="timer"></p>
+          <span>Number Correct:</span> <p id="numberCorrect"></p>
+        </div>
+
+      </div>
+
+      <script> 
+    var correctAnswers = ["IPA", "Malts"];
+    var numberCorrect = 0;
+    console.log(numberCorrect);
+
+     $("#submit").on("click", function(){
+      answers();
+
+     console.log(checked);
+     console.log(checked2);
+
+     });
+var timer = 30;
+function decrement(){
+  timer--;
+$("#timer").html(timer);
+
+  if (timer === 0){
+    clearInterval(interval);
+    answers();
+  }
+  console.log(timer);
+}
+var interval = setInterval(decrement, 1000);
+ 
+function answers(){
+  var checked = $("input[name=question1]:checked").val();
+      var checked2 = $("input[name=question2]:checked").val();
+      if (checked === correctAnswers[0]){
+        numberCorrect++;
+        console.log(numberCorrect);
+        }
+      if (checked2 === correctAnswers[1]){
+        numberCorrect++;
+        console.log(numberCorrect);
+        }
+        $("#numberCorrect").html(numberCorrect);
+      
+}
+
+
+
+  </script>
+    </body>
+
+  </html>
